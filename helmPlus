@@ -4,6 +4,9 @@
 #
 # Read the requirements.yaml and parse chart names, repository and version
 # Iterate over the list and call the helm binary to do the deployment.
+# Parse the values.yaml file and create individual overrides files for each chart
+# that contains not only the values for that chart, but also global values from
+# parent chart. Apply the overrides at install time with `helm install -f`
 #
 
 require 'yaml'
