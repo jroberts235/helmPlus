@@ -18,7 +18,7 @@ Charts can also be skipped by providing a comman separated list to.
 
 ##Usage:
 
-Place helmPlus in the umbrella chart directory.
+Run helmPlus from the umbrella chart directory.
 It's assumed that the umbrella chart is at same filesystem level as dependency charts.
 
 
