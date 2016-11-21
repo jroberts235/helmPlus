@@ -10,6 +10,8 @@ You can specify `--dry-run` just as you can when running helm cli. All output is
 
 A single chart can also be deploy from the Umbrella by specifying the chart name with the `-c` option.
 
+Charts can also be skipped by providing a comman separated list to.
+
 ##Install gem dependencies:
 
    `bundle install`
@@ -20,18 +22,4 @@ Place helmPlus in the umbrella chart directory.
 It's assumed that the umbrella chart is at same filesystem level as dependency charts.
 
 
-`./deploy_charts.rb (options)`
-
-`-c CHARTNAME Single chart to deploy`
-
-`-n NAMESPACE Namespace to deploy into`  required
-
-`-O FILENAME optional output to a file`  
-
-`-o FILENAME overrides file` defaults to 'values.yaml'
-
-`-r BOOLEAN get charts from repository` default is False
-
-`--dry-run BOOLEAN run helm in --dry-run --debug mode`
-
-`-h help`
+`./deploy_charts.rb --help`
