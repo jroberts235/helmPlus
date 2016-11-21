@@ -22,4 +22,4 @@ Place helmPlus in the umbrella chart directory.
 It's assumed that the umbrella chart is at same filesystem level as dependency charts.
 
 
-`./deploy_charts.rb --help`
+`./hemlPlus --help`
