@@ -55,7 +55,6 @@ class Options
          :short => "-s CHARTNAME",
          :long => "--skip CHARTNAME",
          :description => "Skip a chart when installing umbrella."
-         #:proc => Proc.new { |s| s.split(/,/) }
 
   option :upgrade_single_chart,
          :short => "-u DEPLOYMENT",
