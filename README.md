@@ -16,7 +16,7 @@ A single chart can also be deploy from the Umbrella by specifying the chart name
 
 ##Usage:
 
-Place deploy_stack.rb in the umbrella chart directory.
+Place helmPlus in the umbrella chart directory.
 It's assumed that the umbrella chart is at same filesystem level as dependency charts.
 
 
