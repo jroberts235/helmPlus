@@ -22,4 +22,4 @@ Run helmPlus from the umbrella chart directory.
 It's assumed that the umbrella chart is at same filesystem level as dependency charts.
 
 
-`./hemlPlus --help`
+`./helmPlus --help`
