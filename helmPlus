@@ -222,7 +222,7 @@ def basic_checks(options)
     Dir.mkdir("overrides") unless File.exists?("overrides")
 
     # create charts dir if it does not exist
-    Dir.mkdir("charts") unless File.exists?("charts") if options.config[:repo_b]
+    Dir.mkdir("charts") unless File.exists?("charts") if options.config[:package_b]
     
     # can't do anything without a requirements.yaml file
     raise "No 'requirements.yaml' in current directory" unless File.exist?("requirements.yaml")
