@@ -61,7 +61,7 @@ class Options
 
   option :upgrade_single_chart,
          :short => "-u DEPLOYMENT",
-         :long => "--chart DEPLOYMENT",
+         :long => "--upgrade DEPLOYMENT",
          :description => "(Not implemetend)"
 
   option :output_file,
