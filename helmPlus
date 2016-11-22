@@ -265,7 +265,6 @@ begin
     ret = install_chart(chart, options)
     write_helm_output_to_file(options.config[:output_file], ret) if options.config[:output_file]
     puts ret # helm output
-    exit
   end
 
 rescue NameError,RuntimeError => e
