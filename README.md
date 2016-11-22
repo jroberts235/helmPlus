@@ -10,7 +10,7 @@ You can specify `--dry-run` just as you can when running helm cli. All output is
 
 A single chart can also be deploy from the Umbrella by specifying the chart name with the `-c` option.
 
-Charts can also be skipped by providing a comman separated list to.
+Charts can also be skipped by providing a comman separated list.
 
 ##Install gem dependencies:
 
