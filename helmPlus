@@ -251,9 +251,9 @@ begin
   chart_list_a = get_chart_metadata(options)
 
   # list of charts to skip 
-  skip_list_a = [options.config[:skip]] if options.config[:skip] 
+  skip_list_a = [options.config[:skip]] if options.config[:skip] || []
   skip_list_a = skip_list_a.first.to_s.split(',')
-  puts "Skipping: #{skip_list_a.inspect}"
+  puts "Skipping: #{skip_list_a.inspect}" unless skip_list_a.empty?
 
   # run helm install on each chart in requirements.yaml
   chart_list_a.each do |chart|
@@ -261,7 +261,7 @@ begin
       puts "#{chart["name"]} skipped..." 
       next
     end
-    puts "Installing #{chart}"
+    puts "Installing #{chart["name"]}"
     ret = install_chart(chart, options)
     write_helm_output_to_file(options.config[:output_file], ret) if options.config[:output_file]
     puts ret # helm output
