@@ -1,4 +1,5 @@
 #! /usr/bin/env ruby
+version = '1.0.0'
 #
 # A script to deploy umbrella Helm charts as individual deployments
 #
@@ -12,6 +13,7 @@
 require 'yaml'
 require 'mixlib/cli'
 require 'tempfile'
+
 
 class Options
   include Mixlib::CLI
@@ -120,8 +122,8 @@ def create_namespace(options)
   end
 end
 
-def write_helm_output_to_file(filename, ret)
-  open(filename, 'a') do |f|
+def write_helm_output_to_file(filename, dir, ret)
+  open("#{dir}/#{filename}", 'a') do |f|
     f.puts ret
   end
 end
@@ -137,7 +139,7 @@ end
 def construct_cmd(options, temp_overrides_file, repo_url, chart_name, version, namespace)
   helm_cmd = "helm install -f #{temp_overrides_file}"
   if options.config[:repo_b]
-    helm_cmd += " #{repo_url}#{chart_name}-#{version}.tgz"
+    helm_cmd += " #{repo_url}/#{chart_name}-#{version}.tgz"
   elsif options.config[:package_b]
     # not working
     helm_cmd += " #{chart_name}-#{version}.tgz"
@@ -241,6 +243,8 @@ begin
   options = Options.new
   options.parse_options
 
+  puts "helmPlus v.#{version}"
+
   # run checks
   basic_checks(options)
 
@@ -263,7 +267,7 @@ begin
     end
     puts "Installing #{chart["name"]}"
     ret = install_chart(chart, options)
-    write_helm_output_to_file(options.config[:output_file], ret) if options.config[:output_file]
+    write_helm_output_to_file(options.config[:output_file], Dir.pwd, ret) if options.config[:output_file]
     puts ret # helm output
   end
 
